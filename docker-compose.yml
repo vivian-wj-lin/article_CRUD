@@ -2,7 +2,9 @@ version: '3.7'
 
 services:
   db:
-    image: postgres
+    image: postgres:13-alpine
+    volumes:
+      - ./data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${NAME}
       POSTGRES_USER: ${USER}
@@ -16,6 +18,29 @@ services:
       - 8000:8000
     depends_on:
       - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${NAME}
+      - DB_USER=${USER}
+      - DB_PASS=${PASSWORD}
+  app:
+    build:
+      context: .
+      args:
+        - DEV=true
+    volumes:
+      - .:/code  
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+        - DB_HOST=db
+        - DB_NAME=${NAME}
+        - DB_USER=${USER}
+        - DB_PASS=${PASSWORD}
+    depends_on:
+      - db
+
+
+
   pgadmin:
     image: dpage/pgadmin4
     environment:
