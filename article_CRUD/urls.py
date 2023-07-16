@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from article.views import manage_articles, delete_article
+from article.views import manage_articles
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/articles/', manage_articles, name='manage_articles'),
     path('api/articles/<int:article_id>/',
-         delete_article, name='delete_article'),
-
+         manage_articles, name='manage_article_detail'),
 ]
