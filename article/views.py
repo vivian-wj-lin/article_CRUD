@@ -2,17 +2,37 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import AuthenticationFailed
+
+from rest_framework_simplejwt.tokens import AccessToken
+from rest_framework_simplejwt.exceptions import InvalidToken
 
 from .models import Article
 from .serializers import ArticleSerializer
 
 
+def validate_jwt(request):
+    token = request.META.get('HTTP_AUTHORIZATION', '').split(' ')[
+        1]
+    try:
+        AccessToken(token)
+        return True
+    except InvalidToken:
+        return False
+
+
 @csrf_exempt
 @api_view(['GET', 'POST', 'DELETE', 'PATCH'])
+@permission_classes([IsAuthenticated])
 def manage_articles(request, article_id=None):
+    is_valid_jwt = validate_jwt(request)
+    if not is_valid_jwt:
+        raise AuthenticationFailed('Invalid JWT')
+
     if request.method == 'GET':
         if article_id:
             try:
