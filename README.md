@@ -1,4 +1,9 @@
 # article_CRUD
+
+**功能說明:**<br> 
+
+有4支文章API，只有註冊並且登入的使用者才能夠進行CRUD操作。
+
 **啟動說明:**
 
 1. 安裝 Docker、docker-compose、docker desktop、python 3.7、Django 3.2、POSTMAN。docker desktop須保持開啟。
@@ -7,10 +12,6 @@
 4. .env 檔案裡的 SECRET_KEY，需更換成實際在settings.py 的 SECRET_KEY
 5. ```docker build -t myapp .```
 6. ```docker-compose up```
-
-**功能說明:**<br> 
-
-有4支文章API，只有註冊並且登入的使用者才能夠進行CRUD操作。
 
 **使用者註冊及登入API:**<br> 
 
@@ -29,10 +30,10 @@ PATCH: ```http://localhost:8000/api/login/```
 
 **4支文章API:**<br>
 
-GET: ```http://localhost:8000/api/articles<br>```
-POST: ```http://localhost:8000/api/articles/<br>```
-DELETE: ```http://localhost:8000/api/articles/id/```
-PATCH: ```http://localhost:8000/api/articles/id/```
+GET: ```http://localhost:8000/api/articles```<br>
+POST: ```http://localhost:8000/api/articles/```<br>
+DELETE: ```http://localhost:8000/api/articles/id/```<br>
+PATCH: ```http://localhost:8000/api/articles/id/```<br>
 
 
 **已經存在的一篇文章:**
@@ -83,7 +84,7 @@ part 3: 段落、段落內文、段落延伸閱讀標題、段落延伸閱讀連
 
 **pgAdmin**
 
-```http://localhost:5050/browser/```
+```http://localhost:5050/browser/```<br>
 
 登入帳密:<br>
 | Email            | 密碼    |
@@ -103,6 +104,6 @@ create a server 設定:<br>
 | Username       | mydatabaseuser   |
 | Password       | mypassword       |
 
-**query string:**
-```select * from public. "article_article";```
-```select * from public. "auth_user";```
+**Query String for looking up article table and user table:**
+```select * from public. "article_article";```<br>
+```select * from public. "auth_user";```<br>
