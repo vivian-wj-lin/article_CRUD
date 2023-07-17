@@ -104,6 +104,6 @@ create a server 設定:<br>
 | Username       | mydatabaseuser   |
 | Password       | mypassword       |
 
-**查看 article table 看 user table的 Query String : **<br>
+**查看 article table 和 user table的 Query String :**<br>
 ```select * from public. "article_article";```<br>
 ```select * from public. "auth_user";```<br>
