@@ -2,11 +2,11 @@
 
 **功能說明:**<br> 
 
-有4支文章API，只有註冊並且登入的使用者才能夠進行CRUD操作。
+有4支文章API，只有註冊並且登入的使用者(有JWT Access Token)才能夠進行CRUD操作。
 
 **啟動說明:**
 
-1. 安裝 Docker、docker-compose、docker desktop、python 3.7、Django 3.2、POSTMAN。docker desktop須保持開啟。
+1. 安裝 Docker、Docker-compose、Docker Desktop、Python 3.7、Django 3.2、POSTMAN。Docker Desktop須保持開啟。
 2. ```git clone https://github.com/vivian-wj-lin/article_CRUD.git```
 3. ```pip install -r requirements.txt```
 4. .env 檔案裡的 SECRET_KEY，需更換成實際在settings.py 的 SECRET_KEY
@@ -15,8 +15,8 @@
 
 **使用者註冊及登入API:**<br> 
 
-PATCH: ```http://localhost:8000/api/register/```
-PATCH: ```http://localhost:8000/api/login/```
+PATCH: ```http://localhost:8000/api/register/```<br>
+PATCH: ```http://localhost:8000/api/login/```<br>
 
 **已經存在的使用者:**
 
@@ -75,7 +75,7 @@ PATCH: ```http://localhost:8000/api/articles/id/```<br>
 
 **文章結構:**<br>
 
-文章資料欄位與資料參考自 https://dailyview.tw/daily/2023/06/28<br>
+說明: 文章資料欄位與資料參考自 https://dailyview.tw/daily/2023/06/28<br>
 
 文章結構:<br>
 part 1: 標題圖片、標題、副標題、日期<br>
@@ -104,6 +104,6 @@ create a server 設定:<br>
 | Username       | mydatabaseuser   |
 | Password       | mypassword       |
 
-**Query String for looking up article table and user table:**
+**查看 article table 看 user table的 Query String : **<br>
 ```select * from public. "article_article";```<br>
 ```select * from public. "auth_user";```<br>
