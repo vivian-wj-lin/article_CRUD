@@ -8,11 +8,11 @@
 5. ```docker build -t myapp .```
 6. ```docker-compose up```
 
-功能說明: 
+功能說明:<br> 
 有4支文章API，只有註冊並且登入的使用者才能夠進行CRUD操作。
 
-使用者註冊及登入API: 
-PATCH: http://localhost:8000/api/register/ 
+使用者註冊及登入API:<br> 
+PATCH: http://localhost:8000/api/register/<br> 
 PATCH: http://localhost:8000/api/login/
 
 已經存在的使用者: 
@@ -25,11 +25,11 @@ PATCH: http://localhost:8000/api/login/
 }
 ```
 
-4支文章API: 
-GET: http://localhost:8000/api/articles 
-POST: http://localhost:8000/api/articles/ 
-DELETE: http://localhost:8000/api/articles/<id>/ 
-PATCH: http://localhost:8000/api/articles/<id>/ 
+4支文章API:<br>
+GET: http://localhost:8000/api/articles<br>
+POST: http://localhost:8000/api/articles/<br>
+DELETE: http://localhost:8000/api/articles/<id>/<br> 
+PATCH: http://localhost:8000/api/articles/<id>/<br> 
 
 
 已經存在的一篇文章:
@@ -69,11 +69,9 @@ PATCH: http://localhost:8000/api/articles/<id>/
 }
 ```
 
-補充: 
-文章資料欄位與資料參考自 https://dailyview.tw/daily/2023/06/28 
-結構: 
+補充:<br>
+文章資料欄位與資料參考自 https://dailyview.tw/daily/2023/06/28<br>
+結構:<br>
 標題圖片、標題、副標題、日期<br>
-
 副標標題、副標說明、副標圖片、副標圖片來源說明、副標圖片來源連結<br>
-
 段落、段落內文、段落延伸閱讀標題、段落延伸閱讀連結、段落圖片、段落圖片來源說明、段落圖片連結 *10個段落<br>
