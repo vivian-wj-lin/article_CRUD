@@ -11,8 +11,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import logging
+
 from pathlib import Path
 from dotenv import load_dotenv
+from datetime import timedelta
+
+AUTH_USER_MODEL = 'users.User'
+
 
 # Load .env file
 dotenv_path = os.path.join(Path(__file__).parent.parent, '.env')
@@ -153,4 +159,32 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
+}
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+    'loggers': {
+        'users': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
 }
