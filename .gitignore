@@ -2,7 +2,7 @@ __pycache__
 *.sqlite3
 *.py[co]
 # *.env
-*env
+# *env #還原註解後，注意venv會被隱藏
 .vscode
 data
 /data
