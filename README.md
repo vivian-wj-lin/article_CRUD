@@ -15,8 +15,8 @@
 
 **使用者註冊及登入API:**<br> 
 
-PATCH: ```http://localhost:8000/api/register/```<br>
-PATCH: ```http://localhost:8000/api/login/```<br>
+POST: ```http://localhost:8000/api/register/```<br>
+POST: ```http://localhost:8000/api/login/```<br>
 
 **已經存在的使用者:**
 
