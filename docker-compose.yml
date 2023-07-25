@@ -10,13 +10,15 @@ services:
       POSTGRES_DB: ${NAME}
       POSTGRES_USER: ${USER}
       POSTGRES_PASSWORD: ${PASSWORD}
+    networks:
+      - my_network
   app:
     build:
       context: .
       args:
         - DEV=true
-    # volumes:
-    #   - .:/app  
+    volumes:
+      - .:/app  
 
     command: sh -c "pip install djangorestframework-simplejwt && python manage.py wait_for_db && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 
@@ -30,6 +32,8 @@ services:
         - DB_PASS=${PASSWORD}
     depends_on:
       - db
+    networks:
+      - my_network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -38,3 +42,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - "5050:80"
+    networks:
+      - my_network
+
+networks:
+  my_network:
