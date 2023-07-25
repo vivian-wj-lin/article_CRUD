@@ -6,12 +6,11 @@
 
 **啟動說明:**
 
-1. 安裝 Docker、Docker-compose、Docker Desktop、Python 3.7、Django 3.2、POSTMAN。Docker Desktop須保持開啟。
-2. ```git clone https://github.com/vivian-wj-lin/article_CRUD.git```
-3. ```pip install -r requirements.txt```
-4. .env 檔案裡的 SECRET_KEY，需更換成實際在settings.py 的 SECRET_KEY
-5. ```docker build -t myapp .```
-6. ```docker-compose up```
+1. 安裝:  Docker、Docker-compose、Docker Desktop、Python 3.7、Django 3.2、POSTMAN。Docker Desktop須保持開啟。
+2. 下載repo: ```git clone https://github.com/vivian-wj-lin/article_CRUD.git```
+3. 安裝套件: ```pip install -r requirements.txt```
+4. 填上.env檔案裡的SECRET_KEY參數值: 需更換成實際在settings.py 的 SECRET_KEY
+5. 啟動專案: ```docker-compose up```
 
 **使用者註冊及登入API:**<br> 
 
